@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VLearn AI Prototype - Day 18</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="vl-header">
+    <div class="vl-logo"><i class="fa-solid fa-layer-group"></i> VLearn</div>
+    <div class="vl-search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <span style="opacity: 0.7">Tìm kiếm khóa học, chủ đề...</span>
+    </div>
+    <div class="vl-actions">
+      <button class="btn btn-icon"><i class="fa-regular fa-bell"></i></button>
+      <div class="vl-user"><div class="vl-avatar">N</div> Ninh Quang Minh</div>
+    </div>
+  </header>
+
+  <div class="vl-layout">
+    <!-- LEFT SIDEBAR -->
+    <aside class="vl-sidebar">
+      <div class="vl-course-title">
+        <i class="fa-solid fa-arrow-left" style="margin-right: 8px; color: #5f6368; cursor:pointer;"></i>
+        AI & Product
+      </div>
+      <div class="vl-progress">
+        <div class="vl-progress-text"><span>Design the Experiment</span> <span>2/5 concepts</span></div>
+        <div class="vl-progress-bar"><div class="vl-progress-fill" style="width: 40%"></div></div>
+      </div>
+      
+      <div class="vl-menu-section">Nội dung bài học</div>
+      <div class="vl-menu-item"><i class="fa-solid fa-video"></i> Video: Tổng quan ngày 18</div>
+      <div class="vl-menu-item active"><i class="fa-solid fa-desktop"></i> Slide: Design the experiment</div>
+      
+      <div class="vl-menu-section">1. Prototype nhiều phương án</div>
+      <div class="vl-menu-item"><i class="fa-solid fa-video"></i> 1.1 Hãy đưa prototype ra...</div>
+      <div class="vl-menu-item"><i class="fa-solid fa-video"></i> 1.2 Parallel Prototype</div>
+      <div class="vl-menu-item"><i class="fa-solid fa-video"></i> 1.3 Thiết kế khác nhau...</div>
+
+      <div class="vl-menu-section">2. Thiết kế khi AI sai</div>
+      <div class="vl-menu-item"><i class="fa-solid fa-video"></i> 2.0 Khoảng cách giữa...</div>
+      <div class="vl-menu-item"><i class="fa-solid fa-video"></i> 2.1 Khi nào nên dùng AI?</div>
+    </aside>
+
+    <!-- CENTER & RIGHT PANEL WRAPPER -->
+    <main id="app" class="vl-main-wrapper"></main>
+  </div>
+
+  <aside id="fac" class="fac" hidden></aside>
+
+  <!-- Shared -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+  <script src="option-a.js"></script>
+  <script src="option-b.js"></script>
+  <script src="option-c.js"></script>
+</body>
+</html>

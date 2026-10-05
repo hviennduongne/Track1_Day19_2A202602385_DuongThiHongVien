@@ -1,63 +1,64 @@
-# Track 1 — Day 18: Prototype Testing Lab
-## Case B — AI Notes: Personal Learning Notes
+# Track 1 — Day18–19: Prototype Testing Lab
 
----
+## 1. Thông tin cá nhân & đội ngũ
 
-## 1. Thông tin cá nhân & nhóm
-
-| | |
+| Nội dung | Thông tin |
 |---|---|
-| **MHV** | 2A202602432 |
-| **Họ tên** | Ninh Quang Minh |
-| **Case đã chọn** | Case B — AI Notes: Personal Learning Notes (từ Day 17) |
-| **Tên nhóm** | Nhóm 2 Người |
-| **Thành viên** | Ninh Quang Minh, Dương Thị Hồng Viên |
+| Họ tên | Dương Thị Hồng Viên |
+| MSSV | 2A202602385 |
+| Nhóm | Nhóm 2 Người |
+| Thành viên | Ninh Quang Minh (2A202602432), Dương Thị Hồng Viên (2A202602385) |
+| Case | B — AI Notes: Personal Learning Notes, kế thừa Day17 |
 
----
+Bài gộp Day18–19; nhóm hai thành viên. Minh phụ trách B/C và hai tester; Viên phụ trách A và một tester. Mỗi tester trải nghiệm cả A/B/C.
 
-## 2. Hypothesis Problem (Day 18)
+## 2. Hypothesis Problem
 
-> **Khi** vừa học xong một bài online có nhiều framework hoặc nội dung mới, **học viên** gặp khó khăn trong việc **tổng hợp điểm quan trọng và chỗ mình chưa hiểu thành một bản ghi chú dùng được để ôn hoặc làm bài**, **vì** ghi chú thủ công trong lúc học làm gãy mạch (pause, chuyển tab, tua lại) còn bản tóm tắt AI chung chung không phản ánh chỗ họ đã hiểu và chưa hiểu, **dẫn đến** ghi chú lộn xộn hoặc bị bỏ dở và phải mở lại video tua tìm khi cần.
+> Khi vừa học xong một bài online có nhiều framework hoặc nội dung mới, học viên gặp khó khăn trong việc tổng hợp điểm quan trọng và chỗ mình chưa hiểu thành một bản ghi chú dùng được để ôn hoặc làm bài, vì ghi chú thủ công trong lúc học làm gãy mạch (pause, chuyển tab, tua lại) còn bản tóm tắt AI chung chung không phản ánh chỗ họ đã hiểu và chưa hiểu, dẫn đến ghi chú lộn xộn hoặc bị bỏ dở và phải mở lại video tua tìm khi cần.
 
----
+Evidence Day17 của Minh và Viên được tổng hợp trong [design sheet](three-option-design-sheet.md), tách riêng dữ kiện quan sát và diễn giải để kế thừa đúng bài toán của nhóm.
 
-## 3. Three Solution Options (Micro-prototypes)
+## 3. Three Solution Options
 
-Để giải quyết vấn đề trên, nhóm thiết kế 3 phương án (Option) với mức độ tự động hóa và phân chia quyền quyết định giữa AI và người dùng (User) khác nhau:
+| Option | Cơ chế & quyền quyết định | Phụ trách | Trải nghiệm |
+|---|---|---|---|
+| A | Người dùng tự viết; gọi AI khi cần; xem gợi ý rồi chèn/bỏ, sửa hoặc hoàn tác | Viên | [Option A](https://track1day19aitutor.vercel.app/#/a) |
+| B | Người dùng xác nhận mức hiểu; AI tạo nháp theo mức hiểu; người dùng sửa và lưu | Minh | [Option B](https://track1day19aitutor.vercel.app/#/b) |
+| C | AI tạo sẵn nháp; người dùng kiểm tra nguồn, sửa và Giữ/Bỏ từng phần | Minh | [Option C](https://track1day19aitutor.vercel.app/#/c) |
 
-- **Option A (Chủ động - Chatbot Style):**
-  - **Luồng hoạt động:** User tự viết ghi chú hoàn toàn. Khi gặp khó khăn, User bôi đen đoạn cần hỏi -> bấm "Hỏi AI". AI trả lời ngắn gọn giải thích đoạn đó.
-  - **Quyền quyết định:** User toàn quyền tạo nội dung. AI chỉ đóng vai trò "từ điển" giải đáp thắc mắc theo ngữ cảnh khi được gọi.
+Cả ba dùng cùng bài Product Discovery Framework, dấu vết và nhiệm vụ tạo ghi chú để làm lab. [Hướng dẫn mở và trạng thái link công khai](prototype-link.md).
 
-- **Option B (Cùng tạo - Co-creation):** (Do Ninh Quang Minh phụ trách)
-  - **Luồng hoạt động:** AI quét dấu vết học tập và chủ động hỏi User mức độ hiểu ở từng phần (Đã nắm / Mơ hồ / Chưa hiểu). Dựa trên phản hồi, AI tạo ra một bản nháp ghi chú cá nhân hóa.
-  - **Quyền quyết định:** AI soạn nội dung, nhưng User điều hướng AI bằng cách xác nhận mức độ hiểu trước. User có quyền chỉnh sửa lại bản nháp sau cùng.
+## 4. Đóng góp cụ thể của tôi
 
-- **Option C (Tự động - Auto Draft):** (Do Ninh Quang Minh phụ trách)
-  - **Luồng hoạt động:** AI tự động viết toàn bộ bản ghi chú ngay lập tức dựa trên dấu vết. AI gắn các cờ cảnh báo (Ví dụ: "Không có dữ liệu, AI tự tóm tắt chung chung").
-  - **Quyền quyết định:** AI làm toàn bộ công việc nặng. User đóng vai trò "Người duyệt" (Reviewer): Đọc cảnh báo, bấm "Giữ", "Bỏ", hoặc tự sửa tay từng đoạn.
+- Phụ trách Option A trong `prototype/option-a.js`: người dùng tự viết, bôi đen/gõ câu hỏi để gọi AI, xem phản hồi, chèn hoặc đóng, sửa và hoàn tác.
+- Nhận khung prototype và dữ liệu chung từ Minh; tích hợp Option A qua script trong `prototype/index.html`, giữ cùng fixture và thành phần giao diện để so sánh công bằng.
+- Đóng góp Practice Note Day17 và cơ chế user-led vào phần Evidence Huddle, phân vai, quyền chèn/bỏ/hoàn tác trong Human–AI Decision Table.
+- Điều phối phiên A/B/C với Mai Tiến Huy (2A202602914), người ngoài nhóm; ghi phiếu riêng và cung cấp kết quả cho bản tổng hợp ba tester.
+- Minh phụ trách khung chung, B/C và hai phiên Vũ/Dũng. Code và tài liệu có AI hỗ trợ; không quy toàn bộ mã sinh bởi AI thành code tự viết.
 
-🔗 **[Mở Prototype A/B/C chung của nhóm](prototype-link.md)**
+## 5. Dữ liệu kiểm thử & bài học
 
----
+[Phiếu cá nhân của Viên](prototype-feedback-note.md): Huy mở C trước và bấm Giữ; ở A dừng khoảng 4 giây tìm Hỏi AI và dùng Hoàn tác; ở B chọn Chưa hiểu tại Phần 3, xóa hai câu trước khi lưu. Huy chọn B, chấp nhận bước xác nhận mức hiểu để giảm công gõ và vẫn sửa được bản nháp.
 
-## 4. Đóng góp của tôi trong nhóm
+[Bản tổng hợp nhóm](group-feedback-synthesis.md): Vũ chọn B, Dũng chọn C, Huy chọn B. Hành vi đọc cảnh báo trái nhau: Dũng đọc rồi Bỏ, Vũ/Huy duyệt nhanh. Đây là diễn giải từ ghi chép ba phiên, không chứng minh hiệu quả thị trường.
 
-- Dựng khung dự án HTML/CSS/JS ban đầu theo cấu trúc giao diện 3 cột chuyên nghiệp (Sidebar, Center pane, AI Panel) lấy cảm hứng từ nền tảng VLearn.
-- Trực tiếp lập trình **Option B** (AI khảo sát mức độ hiểu) và **Option C** (Auto Draft) vì nhóm thiếu thành viên.
-- Ráp nối code `option-a.js` của Viên vào dự án chung, hỗ trợ Viên tích hợp API OpenRouter để Option A hoạt động mượt mà hơn.
-- Tiến hành chạy 2 phiên Test với người ngoài nhóm (Vũ, Dũng) và ghi nhận kết quả chi tiết.
-- Chủ trì tổng hợp `group-feedback-synthesis.md` từ 3 phiên test.
+**Một Next Change chung:** thêm cảnh báo thiếu dấu vết vào bước xác nhận mức hiểu của B, cho phép tiếp tục hoặc đổi lựa chọn. Không coi thiếu dấu vết là bằng chứng người dùng chưa hiểu.
 
----
-
-## 5. Prototype Feedback
-
-- Bấm để xem chi tiết **[2 Phiếu ghi chép (Feedback Notes)](prototype-feedback-note.md)** do chính tôi làm facilitator.
-- Bấm để xem **[Bản tổng hợp 3 phiên & Next Change của nhóm](group-feedback-synthesis.md)**.
-
----
+**Still Unproven:** cảnh báo có giúp người dùng cân nhắc hơn không; mức hiểu tự khai có chính xác không; khảo sát có gây mệt ở bài dài không; người dùng có quay lại ôn ghi chú không.
 
 ## 6. AI Support Log
 
-Bấm để xem **[Nhật ký sử dụng AI (AI Support Log)](ai-support-log.md)** của tôi.
+[Nhật ký cá nhân](ai-support-log.md) phân biệt phần AI hỗ trợ code/tài liệu, dữ liệu prototype và phản hồi người dùng. Lần hoàn thiện này dùng Codex để đối chiếu hồ sơ, chuyển đúng phiếu Huy, sửa nội dung cá nhân và kiểm tra Option A; không tạo thêm quote hoặc quan sát.
+
+### Đối chiếu yêu cầu trước khi nộp
+
+| Yêu cầu | Nội dung trong bài |
+|---|---|
+| 6 tệp bắt buộc, README 6 mục | Đủ; đúng tên/MSSV và đóng góp cá nhân Viên |
+| Evidence Continuity | Hypothesis đủ 5 thành tố; có evidence Day17, diễn giải và ẩn số |
+| Meaningful Options | A/B/C khác cơ chế; có comparison contract và distance checks |
+| Human Control | Có kỳ vọng, phân vai, nguồn và quyền sửa/bỏ/hoàn tác/khôi phục |
+| Test-ready | Có bộ A/B/C chung bối cảnh, dữ liệu, nhiệm vụ, kết quả và reset |
+| Learning, Not Praise | Ba phiên test; phiếu riêng của Viên; pattern, trade-off, một Next Change và Still Unproven |
+
+Kiểm tra kỹ thuật: cú pháp JavaScript, logic A/B/C, sửa/lưu/hoàn tác/khôi phục/reset và annotation đều đạt trong môi trường kiểm tra DOM. Link truy cập được quản lý tại [prototype-link.md](prototype-link.md).

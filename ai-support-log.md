@@ -1,23 +1,27 @@
-# AI Support Log — Day 18
+# AI Support Log — Dương Thị Hồng Viên — Day18–19
 
-### 1. Phạm vi AI đã hỗ trợ (Tuân thủ luật của bài Lab)
+## 1. Phạm vi hỗ trợ
 
-- **Đề xuất 3 options:** AI giúp biến các hướng trong Solution Parking Lot (Day 17) thành 3 options A/B/C có cơ chế phân chia quyền kiểm soát khác nhau (User tạo, Cùng tạo, AI tạo). AI cũng giúp soạn Human–AI Decision Table cho 3 phương án này.
-- **Tạo dữ liệu giả (Synthetic Data):** Nội dung bài học "Product Discovery Framework" (transcript, thời gian, tên slide) và các dấu vết giả định của học viên được AI tạo ra hoàn toàn để phục vụ prototype, không phải dữ liệu thật.
-- **Sinh "Canned Text" cho AI:** AI hỗ trợ viết sẵn các câu trả lời của AI ở Option B ứng với từng mức độ hiểu (short, long, example) để mô phỏng tương tác mà không cần gọi API model thật.
-- **Viết code Prototype:** AI lập trình shell ứng dụng (HTML/CSS/JS) hỗ trợ routing và cơ chế plugin để ghép nối 3 phương án, đồng thời build chi tiết Option B (AI hỏi mức hiểu rồi tạo nháp) và Option C (AI tạo toàn bộ, user duyệt) vì nhóm chỉ có 2 thành viên thay vì 3.
-- **Rà soát câu hỏi dẫn dắt:** AI rà soát "Outcome task" và "Observation focus" để đảm bảo không nhắc tên nút, không nhắc tính năng AI, và không dùng các câu hỏi đóng hay mớm lời.
+- Bộ prototype chung và design sheet do Minh bàn giao có AI hỗ trợ đề xuất cơ chế, lập bảng Human–AI và code khung/B/C.
+- Option A có AI hỗ trợ code chọn đoạn, hỏi AI, xem phản hồi, chèn/bỏ, hoàn tác và lưu. Viên phụ trách option này và phiên kiểm thử Huy, Minh hỗ trợ tích hợp.
+- Bài Product Discovery Framework, transcript, timestamp và dấu vết trong `data.js` là dữ liệu giả lập phục vụ so sánh, không phải dữ liệu học tập của tester.
+- Hồ sơ Day18 trên máy ghi các công cụ Claude Sonnet 4.6, Gemini 3.1 Pro, Cursor và OpenRouter. AI hỗ trợ viết và rà soát code; phần đóng góp của Viên tập trung vào Option A và phiên Huy.
+- Lần hoàn thiện ngày 05/10/2026 dùng Codex: đọc yêu cầu và các hồ sơ đã có, chuyển phiếu Huy, cá nhân hóa README, cập nhật trạng thái design sheet, đối chiếu mâu thuẫn và kiểm tra logic prototype.
 
-### 2. Giới hạn tự đặt ra (Những việc AI KHÔNG LÀM)
+## 2. Dữ liệu phỏng vấn và kiểm thử
 
-- AI **KHÔNG** làm sạch hoặc viết lại evidence từ Day 17 (chép nguyên văn lời user từ `notes.md`).
-- AI **KHÔNG** tạo quote, observation hay feedback giả mạo (các file liên quan đến test đều là template trống).
-- AI **KHÔNG** tự điền tên thành viên nhóm, không tự quyết định ai build option nào.
-- AI **KHÔNG** tự deploy repo lên GitHub hay thay mặt học viên nộp bài.
+Practice Notes Day17 và ba phiên test là dữ liệu thực tế của nhóm. Viên trực tiếp điều phối Mai Tiến Huy (2A202602914), Minh điều phối Vũ và Dũng. AI hỗ trợ tổ chức tài liệu và đối chiếu yêu cầu, không thay thế công việc phỏng vấn. Ghi chép hành vi và lời nói được giữ theo hồ sơ nhóm đã hoàn thiện.
 
----
+## 3. Reflection cá nhân — Dương Thị Hồng Viên
 
-### 3. AI sai hoặc hời hợt ở đâu, và tôi tự sửa gì?
+Option A cần giữ quyền tạo ghi chú ở người dùng: phản hồi AI phải được xem trước, chỉ chèn khi người dùng quyết định và có Hoàn tác. Phiếu Huy ghi việc dùng Hoàn tác khi nội dung dài, cho thấy điểm phục hồi có ích trong phiên này. Việc Huy dừng để tìm Hỏi AI gợi ý cần xem lại khả năng tìm thấy nút; chưa đủ dữ liệu để kết luận mọi người đều gặp khó khăn.
 
-- **Giao diện ban đầu quá sơ sài:** Ban đầu, AI tạo ra một giao diện HTML/CSS cơ bản, dạng một trang cuộn dọc (single-column) không phản ánh đúng cấu trúc của một nền tảng học tập thực tế. Tôi đã phải cung cấp thêm 5 hình ảnh thiết kế mẫu từ nền tảng VLearn để hướng dẫn AI.
-- **Sửa lại cấu trúc (Layout):** Sau khi nhận xét, tôi yêu cầu AI đập đi làm lại phần giao diện (UI) để chuyển sang cấu trúc 3 phần (Menu trái, Slide bài giảng ở giữa, và AI Panel ở bên phải). AI đã tiến hành thay đổi toàn bộ CSS và hệ thống component để prototype trở nên chuyên nghiệp và sát với thực tế kiểm thử hơn.
+Khi rà soát với Codex, bản cũ gọi OpenRouter bằng khóa mẫu trong khi hướng dẫn nói không cần API. Bản phục vụ lab được chuyển sang phản hồi dựng sẵn theo nội dung từng phần để chạy local; ghi rõ giới hạn phản hồi và không suy đoán mức hiểu. Đây là sửa đổi do Codex thực hiện trong lần hoàn thiện, không khai là Viên tự tay viết trước đó.
+
+Tài liệu AI hỗ trợ còn ghi tên Minh, trạng thái chưa build và các đề xuất chưa cập nhật. Lần hoàn thiện sửa đúng phần việc của Viên, giữ đề xuất cá nhân tách khỏi một Next Change chung. Không dùng các bản tổng hợp tự động để khẳng định thành công chỉ từ ba tester.
+
+## 4. Rà soát cuối theo đề bài
+
+Codex sửa bảng phân công bị lỗi Markdown, thêm timeline 20 phút và câu hỏi bối cảnh mở, làm rõ giới hạn B/C và sửa thông báo lưu chỉ trong phiên. Code khung được sửa biến `centerScrollPos` chưa khai báo và bỏ hàm `getCenterPane` trùng. Giữ hai phiếu Minh ở `evidence/` với nguồn ghi rõ để đối chiếu ba phiên.
+
+Kiểm tra: cú pháp 5 file JavaScript; link nội bộ; README đủ 6 mục; chạy luồng shell A/B/C, sửa/lưu/khôi phục/reset và annotation trong DOM mô phỏng. Chưa kiểm tra trực quan bản public. Không khai các kiểm tra code là kết quả phỏng vấn hoặc validation.

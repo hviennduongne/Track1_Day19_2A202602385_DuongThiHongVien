@@ -107,7 +107,7 @@
       <div class="vl-panel-body">
         <div class="stepbar">Bước 1/2 — Khảo sát mức độ hiểu</div>
         <div class="expect">
-          <strong>AI sẽ làm gì:</strong> Trước khi viết ghi chú, AI cần biết bạn đã nắm phần nào. AI sẽ viết kỹ phần bạn chưa nắm và viết gọn phần bạn đã nắm.
+          <strong>AI sẽ làm gì:</strong> Trước khi viết ghi chú, AI cần biết bạn đã nắm phần nào. AI sẽ viết kỹ phần bạn chưa nắm và viết gọn phần bạn đã nắm. Đây là bản nháp từ bài mẫu và mức hiểu bạn chọn; AI không kiểm tra được bạn đã hiểu thực sự hay chưa.
         </div>
         <div>${rows}</div>
       </div>

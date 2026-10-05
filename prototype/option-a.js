@@ -1,6 +1,6 @@
 /* Option A — Dương Thị Hồng Viên. 
  * AI mechanism: User writes notes manually. If stuck, they select text and click "Hỏi AI". 
- * Implemented with actual OpenRouter API as requested by user.
+ * Canned responses for the lab: no network or API key required.
  */
 (function () {
   const { F, esc, tracesOf, traceChip, transcriptBox, sectionById } = window.App;
@@ -16,60 +16,24 @@
     } else {
       const selection = window.getSelection();
       const node = selection && selection.anchorNode;
-      const card = node && (node.nodeType === 1 ? node : node.parentElement).closest('[data-a-card]');
+      const element = node && (node.nodeType === 1 ? node : node.parentElement);
+      const card = element && element.closest('[data-a-card]');
       if (card && selection.toString().trim() && card.contains(selection.focusNode)) {
         selected[card.dataset.aCard] = selection.toString().trim();
       }
     }
   });
 
-  const API_KEY = "sk-or-xxxxxxxxxxxxx";
-
-    async function callAI(quote, section) {
-    const transcript = section.transcript.map(t => `[${t.t}] ${t.text}`).join("\n");
-    const prompt = `Bạn là một AI Tutor. Người dùng đang học bài '${F.lesson.title}', phần '${section.title}'. 
-Họ vừa bôi đen đoạn văn bản sau để hỏi bạn: "${quote}"
-Nội dung bài giảng của phần này: 
-${transcript}
-
-Nhiệm vụ: Giải thích, làm rõ đoạn văn bản người dùng bôi đen dựa trên nội dung bài giảng. 
-Trình bày cực kỳ ngắn gọn (dưới 50 từ), trực tiếp vào vấn đề. Nếu bôi đen là một câu hỏi (ví dụ "Opportunity khác Solution chỗ nào?"), hãy trả lời nó.
-Chỉ trả về nội dung giải thích, không dông dài.`;
-
-    try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
-      
-      const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer ${API_KEY}`,
-          "Content-Type": "application/json",
-          "HTTP-Referer": window.location.href,
-          "X-Title": "Track1 Day 19 AI Tutor"
-        },
-        body: JSON.stringify({
-          model: "openrouter/free",
-          messages: [{ role: "user", content: prompt }]
-        }),
-        signal: controller.signal
-      });
-      clearTimeout(timeoutId);
-      
-      if (!res.ok) {
-        throw new Error("Lỗi từ OpenRouter API");
-      }
-      
-      const data = await res.json();
-      return data.choices[0].message.content.trim();
-    } catch (e) {
-      console.error(e);
-      // Fallback if API fails or times out
-      if (quote.includes("Opportunity") && quote.includes("Solution")) {
-          return "Opportunity nằm ở phía khách hàng (vấn đề của họ). Solution nằm ở phía team product (thứ mình build để giải quyết).";
-      }
-      return "Xin lỗi, AI đang gặp lỗi kết nối (hoặc timeout). Bạn hãy thử lại hoặc tự tìm hiểu thêm trong bài giảng nhé.";
-    }
+  async function callAI(quote, section) {
+    // A micro-prototype illustrates interaction; it does not answer arbitrary questions.
+    const replies = {
+      s1: "Discovery trả lời có nên build trước khi đầu tư; Delivery tập trung build cho đúng. Hai hoạt động chạy song song (01:55, 03:10).",
+      s2: "Double Diamond: Discover → Define để hiểu vấn đề, Develop → Deliver để tìm giải pháp. Mỗi hình thoi mở rộng rồi thu hẹp (05:02–09:05).",
+      s3: "Opportunity là nhu cầu hoặc nỗi đau của khách hàng; Solution là thứ nhóm xây để giải quyết nhu cầu đó. Ví dụ minh họa này dựa trên transcript 11:30–12:05.",
+      s4: "Bốn rủi ro: Value, Usability, Feasibility, Viability. Ưu tiên kiểm tra giả định quan trọng nhưng còn ít bằng chứng (18:40–21:30).",
+      s5: "Trong bài mẫu, fake-door được chọn để quan sát hành vi bấm thật với chi phí thấp; không chứng minh mọi bài toán đều nên dùng cách này (22:58–26:10)."
+    };
+    return replies[section.id] || "Chưa có phản hồi mẫu cho phần này. Bạn có thể đọc transcript và tiếp tục ghi chú thủ công.";
   }
 
   window.App.registerOption({
@@ -87,7 +51,7 @@ Chỉ trả về nội dung giải thích, không dông dài.`;
         </div>
         <div class="vl-panel-body" style="background:#f8f9fa;">
           <div class="expect" style="background:#fff">
-            <strong>Ghi chú chủ động:</strong> Bạn hãy tự viết ghi chú. Nếu chưa hiểu đoạn nào, hãy <strong>bôi đen</strong> đoạn đó (trong dấu vết, transcript hoặc ghi chú của bạn) và bấm <strong>"Hỏi AI"</strong>.
+            <strong>Ghi chú chủ động:</strong> Bạn hãy tự viết ghi chú. Nếu chưa hiểu đoạn nào, hãy <strong>bôi đen</strong> đoạn đó (trong dấu vết, transcript hoặc ghi chú của bạn) và bấm <strong>"Hỏi AI"</strong>. Đây là phản hồi mẫu theo phần bài, không trả lời mọi câu hỏi và không đánh giá mức hiểu của bạn.
           </div>
           ${F.lesson.sections.map(s => {
             const reply = st.replies[s.id];
@@ -152,7 +116,7 @@ Chỉ trả về nội dung giải thích, không dông dài.`;
           st.loading[sid] = true;
           // Trigger re-render to show loading state
           
-          // Async API call
+          // Resolve a canned response only after the user requests it.
           callAI(quote, sectionById(sid)).then(answer => {
             st.loading[sid] = false;
             st.replies[sid] = { quote, text: answer };

@@ -1,29 +1,37 @@
-# Group Feedback Synthesis
+# Group Feedback Synthesis — Day18–19
 
-**Tên nhóm:** [CẦN ĐIỀN TÊN NHÓM]
-**Thành viên:** Ninh Quang Minh, Dương Thị Hồng Viên
-**Tổng số tester đã test:** 3 người (Vũ, Dũng, Mai - tester của Viên)
+**Nhóm:** Nhóm 2 Người — Ninh Quang Minh, Dương Thị Hồng Viên.
+**Ba tester ngoài nhóm:** Trần Phạm Thái Vũ, Nguyễn Anh Dũng (Minh điều phối); Mai Tiến Huy — 2A202602914 (Viên điều phối).
 
----
+Tổng hợp từ hai phiếu Minh bàn giao và phiếu Huy trong hồ sơ Day18 của Viên. Mỗi tester thử cả A/B/C. Phiếu Viên: [Huy](prototype-feedback-note.md). Bản sao hai phiếu Minh để đối chiếu: [Vũ](evidence/feedback-minh-tester1.md), [Dũng](evidence/feedback-minh-tester2.md). Hai phiên Vũ/Dũng do Minh điều phối; phiên Huy do Viên điều phối.
 
-## 1. Hành vi lặp lại (Patterns across 3 testers)
+## 1. Đối chiếu hành vi
 
-- **Sự lười biếng thao tác tay (Low effort bias):** Cả 3 tester đều chê Option A (Tự gõ) vì quá tốn công sức. Họ đều có xu hướng thích AI tạo sẵn một bản nháp (Option B hoặc C) để làm điểm tựa, thay vì bắt đầu từ trang giấy trắng.
-- **Rủi ro của Option C (Automation Bias):** 2/3 tester (Vũ và Mai) khi đối mặt với bản nháp toàn vẹn của Option C đã bấm nút "Giữ" liên tục. Họ lướt qua các cờ cảnh báo (màu vàng) mà không hề đọc kỹ. Họ bị ngợp thông tin và phó mặc cho AI.
-- **Điểm sáng của Option B (Co-creation):** 2/3 tester chọn Option B là phương án tối ưu. Việc AI bắt user phải dừng lại 1 nhịp để "xác nhận mức độ hiểu" (Khảo sát đầu vào) tạo ra cảm giác làm chủ. Bản nháp sinh ra sau đó được tester đánh giá là "cá nhân hóa và đáng tin cậy hơn".
+| Nội dung | Vũ | Dũng | Huy | Pattern / đối lập |
+|---|---|---|---|---|
+| First Action | Mở C vì chữ Tự động | Mở A, đọc thẻ transcript | Mở C, đọc lướt thẻ đầu, bấm Giữ | Điểm bắt đầu khác nhau |
+| Major Breakdown | A: chọn một chữ rồi mới chọn cả câu | B: chọn Đã nắm hàng loạt, không hài lòng với nháp | A: dừng khoảng 4 giây tìm Hỏi AI | A khó tìm/cung cấp đầu vào; B vẫn có thể bị trả lời qua loa |
+| Evidence | C: bỏ qua cảnh báo, Giữ cả 5 phần | C: đọc cảnh báo rồi Bỏ phần đó | C: phiếu ghi Giữ 5 phần trong 10 giây, không mở Transcript | Dũng kiểm tra; Vũ/Huy duyệt nhanh. Không suy ra động cơ chỉ từ click |
+| Control Taken | B: sửa text trước lưu | C: Bỏ phần cảnh báo; A: chèn AI | B: xóa hai câu; A: Hoàn tác | Công cụ sửa/bỏ/hoàn tác được sử dụng |
+| Selected Option | B | C | B | Hai chọn B, một chọn C; không suy rộng thống kê |
+| Key Trade-off | Thêm bước mức hiểu để có nháp sát ý | Chấp nhận nháp dài để giảm gõ, dễ Bỏ | Chấp nhận xác nhận mức hiểu và sửa nháp | Cùng muốn giảm công gõ; mức kiểm soát mong muốn khác nhau |
 
-## 2. Lựa chọn (Winning Option & Trade-offs)
 
-- **Option thắng cuộc:** **Option B** (2 vote), Option C (1 vote), Option A (0 vote).
-- **Trade-off mà người dùng chấp nhận:** Người dùng chấp nhận đánh đổi sự tiện lợi tuyệt đối (chỉ cần bấm 1 nút tạo nháp của Option C) để lấy **sự can thiệp có chủ đích (Intentional Friction)** của Option B. Việc tốn thêm vài giây click khảo sát mức độ hiểu giúp họ có bản ghi chú sát ý hơn và không bị ngợp thông tin.
+## 2. Diễn giải
 
-## 3. Quyết định tiếp theo (Group Next Change)
+Việc Vũ/Huy duyệt nhanh có thể phản ánh xu hướng bỏ qua cảnh báo; chưa chứng minh họ “tin tưởng mù quáng”. Dũng lại đọc và Bỏ, nên C không thất bại với mọi tester. B được hai người chọn nhưng Dũng trả lời qua loa, cho thấy hỏi mức hiểu không bảo đảm mức hiểu được khai chính xác.
 
-Dựa trên evidence, trong iteration tiếp theo nhóm sẽ:
-- **Phát triển tiếp Option B** (AI khảo sát mức hiểu trước rồi mới tạo nháp).
-- **Bổ sung tính năng từ Option C vào Option B:** Đem hệ thống "Cờ cảnh báo mâu thuẫn" (Confidence flags) của Option C gắn vào bước tạo nháp của Option B. Nếu user chọn "Đã nắm" nhưng hệ thống thấy không có dấu vết học tập nào (không highlight, không pause), AI sẽ bật cờ nhắc nhở nhẹ trước khi sinh bản nháp.
+## 3. Đúng một Next Change chung
 
-## 4. Những điều vẫn chưa được chứng minh (Still Unproven)
+**Thêm cảnh báo thiếu dấu vết vào bước xác nhận mức hiểu của Option B:** khi người dùng chọn Đã nắm ở phần không có dấu vết, hiển thị “Phần này chưa có dấu vết học tập; bạn có thể giữ mức hiểu đã chọn hoặc đổi lại”, cho phép tiếp tục hoặc đổi mức hiểu. Không tự hạ mức hiểu và không coi thiếu dấu vết là mâu thuẫn chứng minh người dùng không hiểu.
 
-- Prototype hiện tại chỉ thử nghiệm trên 1 bài học rất ngắn (5 phần). Vẫn chưa chứng minh được liệu người dùng có sẵn sàng ngồi click chọn mức độ hiểu (Option B) cho một bài giảng dài 2 tiếng với 20 phần hay không (nguy cơ mệt mỏi vì khảo sát - Survey fatigue).
-- Chưa kiểm chứng được khả năng duy trì thói quen: Liệu tester có quay lại nền tảng để đọc ghi chú này sau 1 tuần hay không?
+Đây là phiên bản làm rõ đề xuất cảnh báo trong bản tổng hợp Minh bàn giao. Căn cứ: Dũng chọn Đã nắm hàng loạt ở B; Vũ/Huy duyệt nhanh ở C; Dũng có phản ứng với cảnh báo C. Cần test lại để biết cảnh báo mới có tác dụng hay chỉ thêm bước. Đề xuất cá nhân tích hợp Hỏi AI vào B trong phiếu Huy được giữ làm ý tưởng, không thêm thành Next Change thứ hai.
+
+## 4. Still Unproven
+
+- Cảnh báo mới có giảm trả lời qua loa hay làm người dùng mệt hơn?
+- Mức hiểu tự khai có phản ánh khả năng thực sự áp dụng kiến thức?
+- Bài dài 20 phần có gây mệt vì khảo sát?
+- Người dùng có quay lại đọc ghi chú sau một tuần?
+
+Ba phiên cung cấp bài học tương tác, chưa đủ xác nhận hiệu quả học tập hoặc nhu cầu thị trường.

@@ -67,7 +67,7 @@
           <textarea style="background-color: #f4fbff; border: 1px solid #c2e0ff;" data-field="text" data-sid="${s.id}" rows="${rows}" ${isRejected ? 'disabled' : ''}>${esc(text)}</textarea>
           
           <div class="draft-meta">
-            <span class="muted small">${isRejected ? "Đã loại bỏ khỏi sổ tay" : isPending ? "Chưa duyệt" : "Bạn có thể sửa trực tiếp nội dung"}</span>
+            <span class="muted small">${isRejected ? "Đã bỏ. Bấm Giữ để khôi phục" : isPending ? "Chưa duyệt" : "Bạn có thể sửa trực tiếp nội dung"}</span>
             <button class="link small" data-action="toggle-src" data-sid="${s.id}"><i class="fa-solid fa-code-branch"></i> Transcript ${st.openSrc[s.id] ? "–" : "+"}</button>
           </div>
           ${st.openSrc[s.id] ? transcriptBox(s) : ""}
@@ -82,7 +82,7 @@
         <div class="vl-panel-body" style="background:#f8f9fa;">
           <div class="stepbar"><i class="fa-solid fa-robot"></i> Chế độ Auto-Draft (AI Tự động tạo)</div>
           <div class="expect" style="background:#fff">
-            <strong>Cơ chế Auto-Draft:</strong> AI đã tự động phân tích và viết sẵn toàn bộ ghi chú. Bạn đóng vai trò là "Người duyệt" (Reviewer). Hãy duyệt qua, giữ lại những phần hữu ích và bỏ đi những phần không cần thiết.
+            <strong>Cơ chế Auto-Draft:</strong> AI đã tự động phân tích và viết sẵn toàn bộ ghi chú. Bạn đóng vai trò là "Người duyệt" (Reviewer). Hãy duyệt qua, giữ lại những phần hữu ích và bỏ đi những phần không cần thiết. AI chỉ dựa trên bài mẫu và dấu vết, không biết mức hiểu thật của bạn; hãy đối chiếu Transcript khi cần.
           </div>
           <div>${cards}</div>
         </div>

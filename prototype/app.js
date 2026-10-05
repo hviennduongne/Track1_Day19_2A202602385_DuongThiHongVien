@@ -69,53 +69,7 @@
     return `
       <div class="vl-center" id="center-pane">
         <div class="vl-slide-viewer">
-          <h1></h1>
-          
-          <div class="vl-slide-controls">
-            <i class="fa-solid fa-pen"></i> <i class="fa-solid fa-book-open"></i> <i class="fa-solid fa-magnifying-glass-minus"></i> 100% <i class="fa-solid fa-magnifying-glass-plus"></i> <i class="fa-solid fa-text-width"></i>
-          </div>
-        </div>
-
-        <section class="card" style="margin-top: 24px">
-          <div class="eyebrow">Bài học hiện tại</div>
-          <h1 style="font-size:1.4rem; margin-bottom:8px">${esc(L.title)}</h1>
-          <div class="meta" style="margin-bottom:12px">${L.sections.length} phần · ${L.duration} · <span class="ok"><i class="fa-solid fa-check"></i> Đã xem hết</span></div>
-          <button class="link" data-action="toggle-lesson">
-            <i class="fa-solid ${App.state.showLesson ? 'fa-chevron-up' : 'fa-chevron-down'}"></i> 
-            ${App.state.showLesson ? "Ẩn nội dung transcript" : "Xem nội dung transcript"}
-          </button>
-          ${lessonDetail}
-        </section>
-
-        <section class="card" style="margin-top: 24px">
-          <h2 style="font-size:1.1rem; margin-bottom:12px">Dấu vết bạn đã để lại</h2>
-          <ul class="trace-list">${traces}</ul>
-        </section>
-        
-        <section class="card task" style="margin-top: 24px">
-          <h2 style="font-size:1.1rem; margin-bottom:8px; color: #1a73e8"><i class="fa-solid fa-bullseye"></i> Nhiệm vụ của Tester</h2>
-          <p style="margin:0">${esc(F.task)}</p>
-        </section>
-      </div>
-    `;
-  }
-
-  
-  function getCenterPane() {
-    const L = F.lesson;
-    const lessonDetail = App.state.showLesson
-      ? `<div class="lesson-detail">${L.sections.map((s) => `
-          <div class="lesson-sec"><strong>Phần ${s.no} — ${esc(s.title)}</strong> <span class="muted">${s.start}–${s.end}</span>
-          ${transcriptBox(s)}</div>`).join("")}</div>`
-      : "";
-    const traces = F.traces.map((tr) => {
-      const sec = sectionById(tr.sectionId);
-      return `<li>${traceChip(tr)} <span class="muted">Phần ${sec.no} — ${esc(sec.title)}</span></li>`;
-    }).join("");
-    return `
-      <div class="vl-center" id="center-pane">
-        <div class="vl-slide-viewer">
-          <h1></h1>
+          <h1>${esc(L.title)}</h1>
           
           <div class="vl-slide-controls">
             <i class="fa-solid fa-pen"></i> <i class="fa-solid fa-book-open"></i> <i class="fa-solid fa-magnifying-glass-minus"></i> 100% <i class="fa-solid fa-magnifying-glass-plus"></i> <i class="fa-solid fa-text-width"></i>
@@ -187,7 +141,7 @@
       </div>
       <div class="vl-panel-body">
         <div class="expect" style="background:#e8f0fe; border-color:#d2e3fc; color:#1967d2">
-          <i class="fa-solid fa-check-circle"></i> Ghi chú của bạn đã được lưu lại thành công.
+          <i class="fa-solid fa-check-circle"></i> Ghi chú đã lưu trong phiên này. Tải lại trang hoặc Làm lại từ đầu sẽ xóa dữ liệu.
         </div>
         ${notes.map(n => {
           const sec = sectionById(n.sectionId);
@@ -211,6 +165,8 @@
     // Save scroll pos
     const panelBody = document.querySelector('.vl-panel-body');
     const scrollPos = panelBody ? panelBody.scrollTop : 0;
+    const centerBody = document.querySelector(".vl-center");
+    const centerScrollPos = centerBody ? centerBody.scrollTop : 0;
     
     let html, ann, label;
 

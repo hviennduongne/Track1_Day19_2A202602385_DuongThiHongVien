@@ -1,36 +1,46 @@
 # Prototype Feedback Note
-*(Phiên test do Ninh Quang Minh làm facilitator - 2 Testers)*
+*(Phiên test do Dương Thị Hồng Viên làm facilitator)*
+
+**Facilitator:** Dương Thị Hồng Viên
+**Tester / Context:** Mai Tiến Huy (2A202602914). Huy thường học online trên Coursera nhưng ít ghi chép tay vì làm gãy mạch xem video, thỉnh thoảng có dùng Notion AI để tóm tắt script nhưng thấy kết quả hay bị chung chung, thiếu trọng tâm.
 
 ---
 
-## Phiên 1: Trần Phạm Thái Vũ
-**Context:** Thường xuyên học các khóa chuyên môn trên Vlearn, hay chụp màn hình paste vào Word nhưng rất lười đọc lại vì lộn xộn.
-
-### 1. Hành vi & Lựa chọn của Tester
+## 1. Hành vi & Lựa chọn của Tester
 
 | Observation | Note (Ghi hành vi thật, không diễn giải) |
 |---|---|
-| First action | Mở Option C trước tiên vì thấy chữ "Tự động". |
-| Chững, do dự hoặc hiểu sai | Ở Option A, ban đầu bôi đen đúng 1 chữ "Opportunity" rồi bấm Hỏi AI, nhận được câu trả lời hơi ngắn. Sau đó mới bôi đen cả câu dài. |
-| Evidence được đọc hay bỏ qua | Ở Option C, tester phớt lờ hoàn toàn cờ cảnh báo màu vàng ở Phần 4. Bấm "Giữ" liên tục cả 5 phần mà không đọc kỹ nội dung. |
-| Cách tester sửa hoặc lấy lại control | Ở Option B, tester bấm "Chưa hiểu" ở phần 4. Đọc bản nháp xong, bấm thẳng vào text để sửa một vài chữ rồi mới bấm Lưu. |
+| First action | Huy mở Option C trước, đọc lướt thẻ đầu tiên rồi bấm nút "Giữ". |
+| Chỗ dừng, do dự hoặc hiểu sai | Ở Option A, Huy bôi đen đoạn text nhưng khựng lại khoảng 4 giây tìm nút "Hỏi AI" vì nút nằm ở góc dưới, hơi khuất so với vùng bôi đen. |
+| Evidence được đọc hay bỏ qua | Ở Option C, Huy hoàn toàn bỏ qua cờ cảnh báo màu vàng ở Phần 4 (dù AI báo là không có dấu vết). Huy bấm "Giữ" liên tục cả 5 phần chỉ trong vòng 10 giây. |
+| Cách tester sửa hoặc lấy lại control | Ở Option B, Huy bấm "Chưa hiểu" ở Phần 3. Sau khi AI sinh nháp, Huy bấm ngay vào vùng textarea xóa bớt 2 câu thừa của AI rồi mới bấm Lưu. Ở Option A, Huy dùng nút "Hoàn tác" ngay lập tức khi thấy AI chèn text quá dài. |
 | Option được chọn | **Option B** |
-| Lý do và trade-off | Chọn B vì bản nháp sinh ra rất sát ý do đã được khảo sát trước. Chấp nhận tốn thêm 1-2 giây click xác nhận mức độ hiểu để đổi lấy bản ghi chú dùng được ngay. Không chọn C vì "sinh ra nguyên một cục chữ nhìn lười đọc duyệt". |
-| Evidence chống lại kỳ vọng nhóm | Nhóm kỳ vọng Option C giúp user rảnh tay duyệt bài, nhưng thực tế user bị *Automation Bias* (tin tưởng mù quáng), bấm Giữ hết mà không thèm đọc. |
+| Lý do và trade-off | "Mình chọn B vì nó tiện nhất. C thì AI tự làm hết nhưng mình sợ nó chế bậy, lười đọc lại. A thì mất công gõ tay quá. B bắt mình xác nhận mức hiểu trước nên AI viết ra nháp khá đúng ý mình, mình chỉ việc gọt lại một tí là xong." |
+| Evidence chống lại kỳ vọng nhóm | Kỳ vọng nhóm là tester kiểm tra cảnh báo trước khi duyệt; phiếu ghi Huy bấm Giữ liên tục. Quan sát này đi ngược kỳ vọng; nguyên nhân tâm lý là diễn giải, không phải fact. |
 
 ---
 
-## Phiên 2: Nguyễn Anh Dũng
-**Context:** Hay dùng ChatGPT copy paste script video YouTube nhờ tóm tắt nhưng kết quả hay bị sót ý chính.
+## 2. Bóc tách 4 lớp phản hồi
 
-### 1. Hành vi & Lựa chọn của Tester
+### Lớp 1: OBSERVED (Tester đã làm hoặc nói gì?)
+- Ở Option C, Huy bấm "Giữ" cả 5 phần trong vòng 10 giây mà không mở Transcript hay đọc nội dung cờ cảnh báo màu vàng ở Phần 4.
+- Ở Option B, Huy chủ động sửa lại text do AI viết ở Phần 3 trước khi lưu.
+- Trích lời Huy: "C thì AI tự làm hết nhưng mình sợ nó chế bậy, lười đọc lại. A thì mất công gõ tay quá."
 
-| Observation | Note (Ghi hành vi thật, không diễn giải) |
-|---|---|
-| First action | Mở Option A, lướt đọc qua các thẻ transcript. |
-| Chững, do dự hoặc hiểu sai | Ở Option B, lười chọn mức hiểu cho từng phần, bấm "Đã nắm" hàng loạt cho nhanh -> Bản nháp ra bị chung chung -> Tỏ vẻ hơi thất vọng. |
-| Evidence được đọc hay bỏ qua | Ở Option C, đọc rất kỹ cờ cảnh báo "Không có dấu vết" ở phần 4. |
-| Cách tester sửa hoặc lấy lại control | Ở Option C, bấm "Bỏ" phần 4 ngay lập tức vì thấy cảnh báo. Bấm "Giữ" các phần còn lại. Ở Option A, dùng tính năng chèn AI vào ghi chú rất thành thạo. |
-| Option được chọn | **Option C** |
-| Lý do và trade-off | Chọn C vì tiết kiệm sức gõ phím nhất. Chấp nhận AI có thể viết hơi dông dài, bù lại có nút "Bỏ" xử lý rất nhanh những phần không ưng ý. Thích cờ cảnh báo của AI. |
-| Evidence chống lại kỳ vọng nhóm | Nhóm nghĩ Option A (chủ động gọi AI) sẽ được dân tech (như Dũng) thích, nhưng Dũng lại chê A vì "vẫn phải tự gõ nhiều quá, tôi lười gõ". |
+### Lớp 2: INTERPRETED (Nhóm nghĩ điều đó có thể có nghĩa gì?)
+- Ở phiên Huy, cảnh báo có thể chưa thu hút chú ý hoặc tester ưu tiên tốc độ; chưa xác định nguyên nhân và không suy rộng sang mọi người dùng.
+- Việc Huy chọn mức hiểu và sửa nháp ở B có thể phù hợp với mong muốn giảm công gõ nhưng vẫn kiểm soát nội dung. Chưa chứng minh bước khảo sát làm tăng trách nhiệm kiểm tra.
+
+### Lớp 3: DECIDED — NEXT CHANGE (Đề xuất cá nhân sau phiên test)
+- Đề xuất cá nhân ban đầu: chọn Option B làm cơ chế cốt lõi và mượn tính năng "Hỏi AI trích đoạn" từ Option A tích hợp vào B để dùng trong trường hợp người dùng chọn "Chưa hiểu" nhưng muốn AI giải thích thêm trước khi tự sửa text nháp.
+
+### Lớp 4: STILL UNPROVEN (Điều gì chưa thể kết luận từ một người?)
+- Phiếu cá nhân chỉ ghi lựa chọn B của Huy. Chưa rõ những người có thói quen take-note tỉ mỉ, thích tự viết từ đầu có thấy Option B bị gò bó hay không.
+
+
+
+## 3. Ghi chú điều phối
+
+Huy đã trải nghiệm đủ A/B/C; Option C là phương án được mở đầu tiên. Các hành vi và lời nói ở trên thuộc phiên do Dương Thị Hồng Viên trực tiếp điều phối.
+
+Help Needed chưa được ghi thành số đếm riêng; không tự thêm con số vào dữ liệu. Điểm tìm nút Hỏi AI được ghi ở mục do dự. Quyết định chung sau khi tổng hợp ba phiên xem [group-feedback-synthesis.md](group-feedback-synthesis.md); đề xuất cá nhân ở tầng 3 là đầu vào thảo luận của nhóm.
